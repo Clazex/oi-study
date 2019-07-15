@@ -62,3 +62,77 @@ int main(){
 3. `cin.getline(char[] string, int maxChar)`用于获取整行（可带空格）的字符串
 
 ------
+
+### 第七节课
+
+1. 利用`while`读多行（当读到`EOF`的时候停）
+
+```c++
+//一个例子
+#include <iostream>
+using namespace std;
+
+int main(){
+	char = str[102];
+	int sum = 0;
+	
+	while(cin >> str){
+		sum++;
+	}
+	
+	cout << sum << endl;
+	
+	return 0;
+}
+```
+
+2. `strlen(char[] string)`取长度、`strcpy(char[] string)`复制、`strcat(char[] string)连接`、`strcmp(char[] string)`对比、`strstr(char[] string)`查找第一个（复杂，不要用）（位于`cstring`中）
+
+------
+
+### 第八节课
+
+1. 排序`sort(Int address, Int address, Bool [function])`(如`sort(a, a + 3)`会排序`a`中的第1 ~ 3个数)（在`algorithm`中），将数组从小到大排，第三个参数指定比较方式
+
+```c++
+bool cmp(int a, int b){
+	return a > b;//sort调用此函数可以从大到小排
+}
+```
+
+2. `结构 struct`自定义变量类型
+
+```c++
+#include <cstdio>
+using namespace std;
+
+struct Data{
+	int a, b;
+};
+
+bool cmp(Data x, Data y){
+	return x.b > y.b;//按b从大到小排序
+}
+
+int main(){
+	Data t[3000];
+	int c, n;
+	
+	scanf("%d", &n);
+	
+	for(int i = 0; i < n; i++){
+		scanf("%d %d", t[i].a, t[i].b);
+	}
+	
+	sort(t, t + n, cmp);
+	
+	for(int i = 0; i < n; i++){
+		printf("%d %d\n", t[i].a, t[i].b);
+	}
+	
+	return 0;
+}
+```
+
+------
+
