@@ -170,3 +170,24 @@ int main(){
 1. 贪心算法 - 求局部最优解
 
 ------
+
+### 第十一节课
+
+1. 类型转换
+
+```c++
+#include <cstdio>
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	cout << (int)sqrt(n);//转换为`int`
+}
+```
+
+2. `stable_sort();`用法与`sort();`相同，但更稳定，即对于结构体，若某几个数据相同，则按原顺序排
+
+------
