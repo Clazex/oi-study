@@ -8,13 +8,14 @@ int main(){
 	int n;
 	scanf("%d", &n);
 	
-	int i, m, p1, s1, p2, s2, min, relx, rel = 0, s[n + 1];
+	int i, m;
+	long long p1, s1, p2, s2, min, relx, rel = 0, s[n + 1];
 	
 	for(i = 1; i <= n; i++){
-		scanf("%d", &s[i]);//士兵就位 
+		scanf("%lld", &s[i]);//士兵就位 
 	}
 	
-	scanf("%d %d %d %d", &m, &p1, &s1, &s2);
+	scanf("%d %lld %lld %lld", &m, &p1, &s1, &s2);
 	s[p1] += s1;//天降奇兵 
 	
 	for(i = 1; i <= n; i++){
@@ -36,7 +37,7 @@ int main(){
 		}
 	}
 	
-	printf("%d\n", p2);//输出 
+	printf("%lld\n", p2);//输出 
 	
 	return 0;
 }

@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
 
-int r(int n){
-	int m = 0;
+long long r(long long n){
+	long long m = 0;
 	while(n != 0){
 		m *= 10;
 		m += n % 10;
@@ -14,13 +14,14 @@ int r(int n){
 	return m;
 }
 
-bool hw(int n){
+bool hw(long long n){
 	return n == r(n);
 }
 
 int main(){
-	int n, m, o = 0;
-	scanf("%d", &n);
+	long long n;
+	int o = 0;
+	scanf("%lld", &n);
 	
 	if(hw(n)){
 		printf("0\n");
