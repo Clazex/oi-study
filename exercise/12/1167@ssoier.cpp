@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cstdio>
 #include <cstring>
 #include <algorithm>
@@ -6,14 +5,13 @@
 using namespace std;
 
 double f(double x, int n){
-	if(n == 1) return sqrt(x + 1);
-	return sqrt(n + f(x, n - 1));
+	if(n == 1) return x / (n + x);
+	return x / (n + f(x, n - 1));
 }
 
 int main(){
-	double x;
-	int n;
-	scanf("%lf %d", &x, &n);
+	int x, n;
+	scanf("%d %d", &x, &n);
 	printf("%.2lf", f(x, n));
 	return 0;
 }
