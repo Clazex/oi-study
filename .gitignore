@@ -28,6 +28,7 @@
 
 # Executables
 *.exe
+*.upx
 *.out
 *.app
 
