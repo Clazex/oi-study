@@ -225,3 +225,9 @@ int main(){
 5. `dijkstra算法`求单源最短路径
 
 ------
+
+### 第十六节课
+
+1. `vector`动态数组（`vector<type> name`声明，`push_back()`输入， `size()`获取长度）
+
+------
