@@ -22,49 +22,20 @@ inline void ios_sync(const bool __sync = false);
 inline void open_file(const std::string name = "test");
 inline void open_test(const std::string name = "test");
 
-struct Pile {
-	int val;
-	
-	const Pile operator+ (const Pile & rhs) {
-		Pile s;
-		s.val = val + rhs.val;
-		return s;
-	}
-	
-	friend bool operator< (const Pile & lhs, const Pile & rhs) {
-		return lhs.val > rhs.val;
-	}
-	
-	friend istream & operator>> (istream & is, Pile & rhs) {
-		return is >> rhs.val;
-	}
-};
-
-priority_queue<Pile> pq; 
-
-int main(){
+int main() {
 	ios_sync();
 	
-	int n, sum = 0;
-	cin >> n;
+	priority_queue<int> pq;
 	
-	Pile p;
-	for (int i = 0; i < n; i++) {
-		cin >> p;
-		pq.push(p);
+	int t;
+	while (cin >> t, !cin.eof()) {
+		pq.push(t);
 	}
 	
-	while (pq.size() > 1) {
-		Pile a = pq.top();
+	while (!pq.empty()) {
+		cout << pq.top() << endl;
 		pq.pop();
-		Pile b = pq.top();
-		pq.pop();
-		Pile s = a + b;
-		pq.push(s);
-		sum += a.val + b.val;
 	}
-	
-	cout << sum << endl;
 	
 	return 0;
 }
