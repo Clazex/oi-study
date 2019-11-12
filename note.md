@@ -132,3 +132,22 @@ while (l < r) {
 ```
 
 ------
+
+### 第十一节课
+
+1. `快速幂取模`：
+
+```c++
+ll powmod(ll radix, ll index, ll module) {
+	ll ans = 1LL;
+	radix %= module;
+	while (index) {
+		if (index % 2 == 1LL) ans = (ans * radix) % module;
+		index >>= 1, radix = (radix * radix) % module;
+	}
+	return ans;
+}
+```
+
+------
+
