@@ -58,21 +58,21 @@ int p[500005], n;
 int main () {
 	int m, num;
 	
-	std::scanf(" %d %d", &n, &m);
+	scanf(" %d %d", &n, &m);
 	
 	for (int i = 1; i <= n; i++) {
-		std::scanf(" %d", &num);
+		scanf(" %d", &num);
 		bit::bit_add(p, n, i, num);
 	}
 	
 	//operation : 1.add number to a certain number 2.output interval sum
 	int operation, a, b;
 	for (int i = 0; i < m; i++) {
-		std::scanf(" %d %d %d", &operation, &a, &b);
+		scanf(" %d %d %d", &operation, &a, &b);
 		if (operation == 1) {
 			bit::bit_add(p, n, a, b);
-		} else /*if (operation == 1) */{
-			std::printf("%d\n", bit::bit_query(p, b) - bit::bit_query(p, a - 1));
+		} else /*if (operation == 2) */{
+			printf("%d\n", bit::bit_query(p, b) - bit::bit_query(p, a - 1));
 		}
 	}
 	
@@ -89,10 +89,46 @@ int main () {
 
 ------
 
-# 第六节课
+### 第六节课
 
 1. 树的遍历
 
 2. 链式前向星
+
+------
+
+### 第九节课
+
+1. `二叉堆`：保证父亲比两个孩子大
+
+2. `ST表`：区间最值查询
+
+```c++
+void ST(int n) {//dp[i][j]表示区间[i, i + 2 ^ j - 1]的最值
+    for (int i = 1; i <= n; i++) {
+        dp[i][0] = i;
+    }
+    
+    for (int j = 1; (1 << j) <= n; j++) {
+        for (int  i = 1; (i + (1 << j) - 1) <= n; i++) {
+            dp[i][j] = dp[i][j - 1] + dp[i + (1 << j - 1)][j - 1];
+        }
+    }
+}
+```
+
+3. `三分法`：用于类似二次函数的分布的查询
+```c++
+int l = 0, r = n - 1;
+while (l < r) {
+	int m = (l + r) / 2, mm = (m + r) / 2;
+	
+	if (calc(m) < calc(mm)) {
+		r = mm;
+	} else {
+		l = m;
+	}
+}
+```
 
 ------
